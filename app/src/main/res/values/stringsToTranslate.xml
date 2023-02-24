@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wrong_input">Wrong input</string>
+    <string name="success">Success</string>
+    <string name="error">Error</string>
+</resources>

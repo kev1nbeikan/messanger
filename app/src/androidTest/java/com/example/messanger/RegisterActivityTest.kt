@@ -14,12 +14,12 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest {
-    private lateinit var activity_scenario: ActivityScenario<MainActivity>
+class RegisterActivityTest {
+    private lateinit var activity_scenario: ActivityScenario<RegisterActivity>
 
     @Before
     fun setUp() {
-        activity_scenario = ActivityScenario.launch(MainActivity::class.java)
+        activity_scenario = ActivityScenario.launch(RegisterActivity::class.java)
     }
 
     @After

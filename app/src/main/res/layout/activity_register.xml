@@ -5,7 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_200"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/selectPhotoRegisterScreen"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:text="@string/select_photo"
+        android:background ="@drawable/rounded_select_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/usernameEditTextReigsterScreen"
@@ -14,7 +27,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint="usename"
         android:inputType="textPersonName"
@@ -22,15 +35,16 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/selectPhotoRegisterScreen" />
 
     <EditText
         android:id="@+id/emailTextEditRegisterScreen"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint="email"
         android:inputType="textEmailAddress"
@@ -46,7 +60,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:hint="password"
         android:inputType="numberPassword"
@@ -58,27 +72,31 @@
         app:layout_constraintStart_toStartOf="@+id/emailTextEditRegisterScreen"
         app:layout_constraintTop_toBottomOf="@+id/emailTextEditRegisterScreen" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButtonRegisterScreen"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:text="register"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/passwordEditTextRegisterScreen"
-        app:layout_constraintStart_toStartOf="@+id/passwordEditTextRegisterScreen"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextRegisterScreen" />
+        android:background="@drawable/rounded_purple_button"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/alreadyHaveAccoutTextViewRegister"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/alreadyHaveAccoutTextViewRegister"
+        app:layout_constraintTop_toBottomOf="@+id/alreadyHaveAccoutTextViewRegister" />
 
     <TextView
         android:id="@+id/alreadyHaveAccoutTextViewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Already have an account?"
         android:textColor="#546E7A"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/loginButtonRegisterScreen"
-        app:layout_constraintStart_toStartOf="@+id/loginButtonRegisterScreen"
-        app:layout_constraintTop_toBottomOf="@+id/loginButtonRegisterScreen" />
+        app:layout_constraintEnd_toEndOf="@+id/passwordEditTextRegisterScreen"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="@+id/passwordEditTextRegisterScreen"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextRegisterScreen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
