@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    tools:context=".LoginActivity">
+
+    <EditText
+        android:id="@+id/mailEditTextLoginScreen"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="email"
+        android:inputType="textPersonName"
+        android:paddingLeft="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/passwordEditTextLoginScreen"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="numberPassword"
+        android:paddingLeft="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/mailEditTextLoginScreen"
+        app:layout_constraintStart_toStartOf="@+id/mailEditTextLoginScreen"
+        app:layout_constraintTop_toBottomOf="@+id/mailEditTextLoginScreen" />
+
+    <Button
+        android:id="@+id/loginButtonLoginScreen"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="login"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/passwordEditTextLoginScreen"
+        app:layout_constraintStart_toStartOf="@+id/passwordEditTextLoginScreen"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLoginScreen" />
+
+    <TextView
+        android:id="@+id/backRegisteButtoLoginScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="reigster"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/loginButtonLoginScreen"
+        app:layout_constraintStart_toStartOf="@+id/loginButtonLoginScreen"
+        app:layout_constraintTop_toBottomOf="@+id/loginButtonLoginScreen" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
