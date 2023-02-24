@@ -5,7 +5,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.messanger.databinding.ActivityLoginBinding
-import com.example.messanger.firebase.logInUser
 import com.example.messanger.misc.showShortToast
 import com.example.messanger.misc.showSuccessToast
 import com.example.messanger.misc.showWrongInputToast

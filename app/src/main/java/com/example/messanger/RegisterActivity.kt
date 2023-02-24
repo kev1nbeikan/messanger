@@ -3,6 +3,8 @@ package com.example.messanger
 import android.app.Activity
 import android.content.Intent
 import android.graphics.ImageDecoder
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -12,7 +14,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.messanger.databinding.ActivityRegisterBinding
-import com.example.messanger.firebase.register
 import com.example.messanger.misc.showShortToast
 import com.example.messanger.misc.showSuccessToast
 import com.example.messanger.misc.showWrongInputToast
@@ -27,6 +28,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var usernameEditText: TextView
     lateinit var selectPhotoButton: Button
     lateinit var startForResult: ActivityResultLauncher<Intent>
+    var selectedPhotoUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,17 +66,22 @@ class RegisterActivity : AppCompatActivity() {
                 if (result.resultCode == Activity.RESULT_OK) {
                     val pickedPhoto = result.data
                     if (pickedPhoto?.data != null) {
-                        if (Build.VERSION.SDK_INT >= 28) {
-                            val source = ImageDecoder.createSource(contentResolver, pickedPhoto.data!!)
-                            val pickedBitmap = ImageDecoder.decodeBitmap(source)
-                        } else {
-                            val pickedBitmap = MediaStore.Images.Media.getBitmap(contentResolver, pickedPhoto.data)
-                        }
-//                        TODO(change background of selectPhotoButton)
+                        selectedPhotoUri = pickedPhoto.data
+                        val pickedBitmap = getBitmapPhoto(selectedPhotoUri!!)
+                        val bitmapDrawable = BitmapDrawable(this.resources, pickedBitmap)
+                        selectPhotoButton.background = bitmapDrawable
                     }
                 }
             }
     }
+
+    private fun getBitmapPhoto(uri: Uri) =
+        if (Build.VERSION.SDK_INT >= 28) {
+            val source = ImageDecoder.createSource(contentResolver, uri)
+            ImageDecoder.decodeBitmap(source)
+        } else {
+            MediaStore.Images.Media.getBitmap(contentResolver, uri)
+        }
 
     private fun openActivityForResult() {
         val intent = Intent(Intent.ACTION_PICK)
@@ -90,6 +97,9 @@ class RegisterActivity : AppCompatActivity() {
         if (password.isEmpty() || email.isEmpty()) {
             showWrongInputToast(this)
             return
+        }
+        if (selectedPhotoUri != null) {
+            uploadImage(selectedPhotoUri!!)
         }
         register(nickname, email, password).addOnCompleteListener {
             if (it.isSuccessful) {
